@@ -1,0 +1,3 @@
+/* Order matters: tokens → base → (component CSS modules load per component). */
+@import "../design-system/tokens/tokens.css";
+@import "../design-system/tokens/base.css";

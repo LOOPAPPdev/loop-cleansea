@@ -1,0 +1,32 @@
+{
+	"name": "loop-cleansea",
+	"description": "Loop Consultoria — site e design system (Next.js on Cloudflare Workers).",
+	"dependencies": {
+		"@opennextjs/cloudflare": "1.14.0",
+		"next": "16.0.11",
+		"react": "19.2.1",
+		"react-dom": "19.2.1"
+	},
+	"devDependencies": {
+		"@types/node": "24.10.1",
+		"@types/react": "19.2.7",
+		"@types/react-dom": "19.2.3",
+		"eslint": "9.39.2",
+		"eslint-config-next": "16.0.11",
+		"typescript": "5.9.3",
+		"wrangler": "4.136.1"
+	},
+	"private": true,
+	"scripts": {
+		"build": "next build",
+		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+		"check": "npm run build && tsc",
+		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"dev": "next dev",
+		"lint": "eslint .",
+		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+		"start": "next start",
+		"typecheck": "tsc --noEmit",
+		"test:ui": "node scripts/ui-check.mjs"
+	}
+}

@@ -1,0 +1,121 @@
+/* =====================================================================
+   LAYER 1 — DESIGN TOKENS · Loop Consultoria
+   Palette: white · blue-gray · green · purple · blue.
+   Every component reads these variables. Change a token here and every
+   component that uses it follows. Never hard-code colours in components.
+   ===================================================================== */
+:root {
+  /* ---- palette (raw) ---- */
+  --loop-white: #ffffff;
+  --loop-slate-50: #f6f7f9;
+  --loop-slate-100: #f3f4f6;
+  --loop-slate-200: #e8edf0;
+  --loop-slate-300: #d5dce2;
+  --loop-slate-500: #8a929c;
+  --loop-slate-600: #5f6670;
+  --loop-slate-900: #111418;
+  --loop-green: #0f6b5f;
+  --loop-green-tint: #e6eeec;
+  --loop-green-data: #34b67a;
+  --loop-purple: #5146b8;
+  --loop-purple-tint: #ecebf6;
+  --loop-purple-data: #9b5de5;
+  --loop-blue: #2a62d4;
+  --loop-blue-tint: #edf3ff;
+  --loop-blue-data: #4a7cf0;
+  --loop-warn: #a2451b;
+  --loop-warn-tint: #fde8dc;
+  --loop-danger: #c4001a;
+
+  /* ---- semantic ---- */
+  --color-bg: var(--loop-white);
+  --color-surface: var(--loop-slate-100);
+  --color-surface-sunken: var(--loop-slate-200);
+  --color-surface-raised: var(--loop-white);
+  --color-text: var(--loop-slate-900);
+  --color-text-muted: var(--loop-slate-600);
+  --color-on-primary: #ffffff;
+  --color-link: var(--loop-blue);
+  --color-divider: color-mix(in srgb, var(--loop-slate-900) 10%, transparent);
+  --color-border-strong: var(--loop-slate-500);
+  --color-focus: var(--loop-blue);
+  --color-scrim: rgb(17 20 24 / 0.4);
+  --action-primary: var(--loop-slate-900);
+  --action-primary-hover: #2a3038;
+
+  /* ---- typography ---- */
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-micro: 0.75rem;
+  --text-caption: 0.875rem;
+  --text-body: 1.0625rem;
+  --text-lead: clamp(1.125rem, 1.6vw, 1.3125rem);
+  --text-card: 1.3125rem;
+  --text-h3: clamp(1.5rem, 2.6vw, 2.25rem);
+  --text-h2: clamp(1.75rem, 3.4vw, 2.5rem);
+  --text-display: clamp(2.5rem, 6vw, 4.75rem);
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-body: 1.5;
+  --tracking-display: -0.035em;
+  --tracking-heading: -0.02em;
+
+  /* ---- spacing ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-section: clamp(56px, 8vw, 112px);
+  --gutter: max(16px, 4vw);
+  --container: 1280px;
+  --measure: 720px;
+
+  /* ---- shape & elevation ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 0 0 1px var(--color-divider);
+  --shadow-md: 0 12px 32px rgb(17 20 24 / 0.12);
+
+  /* ---- interaction ---- */
+  --target-min: 44px;
+  --duration-fast: 0.16s;
+  --duration-base: 0.24s;
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --header-height: 72px;
+}
+
+/* Breakpoints (documented; CSS cannot use variables in media queries):
+   --bp-sm 640px · --bp-md 900px · --bp-lg 1100px. Mirrored in tokens.ts. */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --loop-white: #0f1215;
+    --loop-slate-50: #14181c;
+    --loop-slate-100: #1a1f24;
+    --loop-slate-200: #232a31;
+    --loop-slate-300: #323b44;
+    --loop-slate-500: #7c8691;
+    --loop-slate-600: #9aa3ad;
+    --loop-slate-900: #eef1f4;
+    --loop-green: #3fbf8f;
+    --loop-green-tint: #13261f;
+    --loop-purple: #a99cf5;
+    --loop-purple-tint: #1e1b33;
+    --loop-blue: #7fa8ff;
+    --loop-blue-tint: #15213a;
+    --loop-warn: #ffb38a;
+    --loop-warn-tint: #3a2116;
+    --loop-danger: #ff6b6b;
+    --color-on-primary: #0f1215;
+    --action-primary-hover: #d5dce2;
+    color-scheme: dark;
+  }
+}

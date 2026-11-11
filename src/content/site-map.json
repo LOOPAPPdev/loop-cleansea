@@ -1,0 +1,662 @@
+{
+ "meta": {
+  "version": "0.1",
+  "source": "Estrutura de openai.com: capturas de /solutions (11 nov 2026) + varredura por 2 subagentes via WebSearch (páginas retornam 403; não foram lidas diretamente). Copy = lorem ipsum.",
+  "lang": "pt-BR"
+ },
+ "copyLimits": {
+  "hero.title": {
+   "max": 48,
+   "lines": 2
+  },
+  "hero.subtitle": {
+   "max": 110,
+   "lines": 2
+  },
+  "section.title": {
+   "max": 32
+  },
+  "card.label": {
+   "max": 16
+  },
+  "card.title": {
+   "max": 28
+  },
+  "card.desc": {
+   "max": 64,
+   "lines": 2
+  },
+  "feature.title": {
+   "max": 52
+  },
+  "feature.body": {
+   "max": 96
+  },
+  "cta.label": {
+   "max": 22
+  },
+  "nav.item": {
+   "max": 16
+  },
+  "footer.link": {
+   "max": 24
+  }
+ },
+ "nav": {
+  "primary": [
+   {
+    "label": "Soluções",
+    "children": [
+     {
+      "label": "Visão geral",
+      "href": "/solucoes",
+      "status": "verified"
+     },
+     {
+      "label": "Áreas",
+      "href": "/solucoes#areas",
+      "status": "verified"
+     },
+     {
+      "label": "Setores",
+      "href": "/solucoes#setores",
+      "status": "verified"
+     },
+     {
+      "label": "Casos de uso",
+      "href": "/solucoes#casos",
+      "status": "verified"
+     }
+    ]
+   },
+   {
+    "label": "Por que a Loop",
+    "children": [
+     {
+      "label": "Médias e grandes empresas",
+      "href": "/por-que-loop/empresas",
+      "status": "verified"
+     },
+     {
+      "label": "Pequenas empresas",
+      "href": "/por-que-loop/pequenas-empresas",
+      "status": "verified"
+     }
+    ]
+   },
+   {
+    "label": "Planos",
+    "href": "/planos",
+    "status": "verified"
+   },
+   {
+    "label": "Parceiros",
+    "children": [
+     {
+      "label": "Ecossistema",
+      "href": "/parceiros",
+      "status": "verified"
+     }
+    ]
+   },
+   {
+    "label": "Aprender",
+    "children": [
+     {
+      "label": "Central",
+      "href": "/aprender",
+      "status": "verified"
+     },
+     {
+      "label": "Guias e relatórios",
+      "href": "/aprender#guias",
+      "status": "verified"
+     }
+    ]
+   },
+   {
+    "label": "Empresa",
+    "children": [
+     {
+      "label": "Sobre",
+      "href": "/sobre",
+      "status": "verified"
+     },
+     {
+      "label": "Princípios",
+      "href": "/principios",
+      "status": "verified"
+     },
+     {
+      "label": "Carreiras",
+      "href": "/carreiras",
+      "status": "verified"
+     },
+     {
+      "label": "Segurança",
+      "href": "/seguranca",
+      "status": "inferred"
+     },
+     {
+      "label": "Notícias",
+      "href": "/noticias",
+      "status": "inferred"
+     },
+     {
+      "label": "Residência",
+      "href": "/residencia",
+      "status": "inferred"
+     }
+    ]
+   }
+  ],
+  "actions": [
+   {
+    "label": "Buscar",
+    "type": "icon",
+    "icon": "search"
+   },
+   {
+    "label": "Conheça a Loop",
+    "type": "menu",
+    "variant": "secondary"
+   },
+   {
+    "label": "Fale com vendas",
+    "href": "/contato",
+    "variant": "primary"
+   }
+  ]
+ },
+ "pages": {
+  "/": {
+   "redirect": "/solucoes"
+  },
+  "/sobre": {
+   "template": "About",
+   "status": "partial",
+   "sections": [
+    "Mission (texto curto, destaque)",
+    "Structure (como a Loop se organiza)",
+    "CompanyLinks (Princípios, Plano)",
+    "CareersTeaser",
+    "CtaBand"
+   ]
+  },
+  "/noticias": {
+   "template": "Listing",
+   "sections": [
+    "Featured ArticleCard",
+    "NewsRow list",
+    "Pagination"
+   ]
+  },
+  "/contato": {
+   "template": "Form",
+   "sections": [
+    "Hero curto",
+    "Form (Field ×6) + aside de contato",
+    "Confirmação inline"
+   ]
+  },
+  "/solucoes": {
+   "template": "Home",
+   "sections": [
+    {
+     "id": "hero",
+     "component": "Hero",
+     "title": "Lorem ipsum dolor sit amet consectetur",
+     "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.",
+     "ctas": [
+      {
+       "label": "Agendar diagnóstico ↗",
+       "href": "/contato",
+       "variant": "primary"
+      },
+      {
+       "label": "Fale com vendas",
+       "href": "/contato",
+       "variant": "secondary"
+      }
+     ]
+    },
+    {
+     "id": "areas",
+     "component": "CardGrid",
+     "title": "Áreas",
+     "columns": 4,
+     "items": [
+      {
+       "title": "Estratégia",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/areas/estrategia"
+      },
+      {
+       "title": "Dados",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "purple",
+       "href": "/solucoes/areas/dados"
+      },
+      {
+       "title": "Comercial",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "green",
+       "href": "/solucoes/areas/comercial"
+      },
+      {
+       "title": "Marketing",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "slate",
+       "href": "/solucoes/areas/marketing"
+      },
+      {
+       "title": "Operações",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/areas/operacoes"
+      },
+      {
+       "title": "Engenharia",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "purple",
+       "href": "/solucoes/areas/engenharia"
+      },
+      {
+       "title": "Design",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "green",
+       "href": "/solucoes/areas/design"
+      },
+      {
+       "title": "Jurídico",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "slate",
+       "href": "/solucoes/areas/juridico"
+      }
+     ]
+    },
+    {
+     "id": "setores",
+     "component": "CardGrid",
+     "title": "Setores",
+     "columns": 4,
+     "items": [
+      {
+       "title": "Segurança",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "purple",
+       "href": "/solucoes/setores/seguranca"
+      },
+      {
+       "title": "Financeiro",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "green",
+       "href": "/solucoes/setores/financeiro"
+      },
+      {
+       "title": "Saúde",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "slate",
+       "href": "/solucoes/setores/saude"
+      },
+      {
+       "title": "Direito",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/setores/direito"
+      },
+      {
+       "title": "Varejo",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "purple",
+       "href": "/solucoes/setores/varejo"
+      },
+      {
+       "title": "Governo",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "green",
+       "href": "/solucoes/setores/governo"
+      },
+      {
+       "title": "Educação",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "slate",
+       "href": "/solucoes/setores/educacao"
+      },
+      {
+       "title": "Ciências",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/setores/ciencias"
+      }
+     ]
+    },
+    {
+     "id": "casos",
+     "component": "MediaCardRow",
+     "title": "Casos de uso",
+     "columns": 3,
+     "items": [
+      {
+       "title": "Conteúdo",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/casos/conteudo"
+      },
+      {
+       "title": "Pesquisa",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/casos/pesquisa"
+      },
+      {
+       "title": "Agentes",
+       "desc": "Lorem ipsum dolor sit amet, consectetur.",
+       "tone": "blue",
+       "href": "/solucoes/casos/agentes"
+      }
+     ]
+    },
+    {
+     "id": "confianca",
+     "component": "SectionIntro",
+     "title": "Lorem ipsum com confiança",
+     "subtitle": "Lorem ipsum dolor sit amet elit sed."
+    },
+    {
+     "id": "dados",
+     "component": "FeatureMedia",
+     "title": "Lorem ipsum dados conectados",
+     "body": "Lorem ipsum dolor sit amet, respostas com fonte citada.",
+     "status": "verified"
+    },
+    {
+     "id": "integracoes",
+     "component": "FeatureMedia",
+     "media": "logo-carousel",
+     "title": "Lorem ipsum dolor sit amet integrações",
+     "body": "Lorem ipsum dolor sit amet.",
+     "cta": {
+      "label": "Ver integrações",
+      "href": "/integracoes"
+     }
+    },
+    {
+     "id": "seguranca",
+     "component": "FeatureMedia",
+     "media": "badges",
+     "title": "Lorem ipsum segurança",
+     "body": "Lorem ipsum dolor sit amet.",
+     "cta": {
+      "label": "Ver privacidade",
+      "href": "/privacidade"
+     }
+    },
+    {
+     "id": "cta-final",
+     "component": "CtaBand",
+     "title": "Lorem ipsum dolor sit amet consectetur",
+     "ctas": [
+      {
+       "label": "Fale com vendas",
+       "href": "/contato",
+       "variant": "primary"
+      }
+     ]
+    }
+   ]
+  },
+  "/solucoes/areas/:slug": {
+   "template": "Team",
+   "status": "partial",
+   "sections": [
+    "Hero + CTA vendas",
+    "Capabilities (3 SelectableCard)",
+    "Workflows (link /workflows)",
+    "Connectors (logo row)",
+    "CustomerResult (StatTiles + quote)",
+    "FAQ (Accordion)",
+    "CtaBand"
+   ],
+   "children": {
+    "/solucoes/areas/:slug/workflows": {
+     "template": "Workflows",
+     "sections": [
+      "Hero",
+      "WorkflowAreas (CardGrid 4)",
+      "CustomerResult",
+      "CtaBand"
+     ]
+    }
+   }
+  },
+  "/solucoes/setores/:slug": {
+   "template": "Industry",
+   "status": "partial",
+   "sections": [
+    "Hero + CTA 'fale com o time do setor'",
+    "FeatureMedia ×3",
+    "CustomerQuote",
+    "CtaBand"
+   ]
+  },
+  "/solucoes/casos/:slug": {
+   "template": "UseCase",
+   "status": "partial",
+   "sections": [
+    "Hero",
+    "ProductBlocks (3)",
+    "TeamExamples (CardGrid 4)",
+    "CtaBand"
+   ]
+  },
+  "/por-que-loop/:segmento": {
+   "template": "Segment",
+   "status": "inferred",
+   "sections": [
+    "Hero",
+    "Benefits (CardGrid 3)",
+    "StatTiles",
+    "CaseStudyRow",
+    "CtaBand"
+   ]
+  },
+  "/planos": {
+   "template": "Pricing",
+   "status": "inferred",
+   "sections": [
+    "Hero",
+    "PlanCards (3) + toggle mensal/anual",
+    "ComparisonTable",
+    "FAQ",
+    "CtaBand"
+   ]
+  },
+  "/parceiros": {
+   "template": "Directory",
+   "status": "inferred",
+   "sections": [
+    "Hero",
+    "Filter + PartnerCard grid",
+    "CtaBand"
+   ]
+  },
+  "/parceiros/:slug": {
+   "template": "Profile",
+   "status": "inferred",
+   "sections": [
+    "Header (logo, setor)",
+    "Sobre",
+    "Serviços",
+    "Casos",
+    "Contato"
+   ]
+  },
+  "/aprender": {
+   "template": "Hub",
+   "status": "inferred",
+   "sections": [
+    "Hero",
+    "Featured guide",
+    "ArticleCard grid",
+    "Newsletter"
+   ]
+  },
+  "/guias/:slug": {
+   "template": "Article",
+   "status": "verified",
+   "sections": [
+    "Hero",
+    "Toc + Article",
+    "Download/Form gate opcional",
+    "Related"
+   ]
+  },
+  "/principios": {
+   "template": "Article",
+   "status": "verified",
+   "sections": [
+    "Hero",
+    "Princípios numerados (lista ordenada real)"
+   ]
+  },
+  "/carreiras": {
+   "template": "Careers",
+   "status": "verified",
+   "sections": [
+    "Hero",
+    "Values (lista)",
+    "JobSearch (/carreiras/busca?c=)",
+    "CtaBand"
+   ],
+   "children": {
+    "/carreiras/busca": {
+     "template": "JobSearch",
+     "sections": [
+      "Filtros por área",
+      "JobList"
+     ]
+    },
+    "/carreiras/:vaga": {
+     "template": "JobPost",
+     "sections": [
+      "Título, área, local",
+      "Descrição",
+      "Candidatar"
+     ]
+    }
+   }
+  },
+  "/seguranca": {
+   "template": "Article",
+   "status": "inferred",
+   "sections": [
+    "Hero",
+    "Práticas",
+    "Certificações (badges)",
+    "Contato de segurança"
+   ]
+  },
+  "/residencia": {
+   "template": "Program",
+   "status": "inferred",
+   "sections": [
+    "Hero",
+    "Como funciona (StepFlow)",
+    "Requisitos",
+    "Candidatar"
+   ]
+  }
+ },
+ "footer": {
+  "columns": [
+   {
+    "title": "Soluções",
+    "links": [
+     {
+      "label": "Visão geral",
+      "href": "/solucoes"
+     },
+     {
+      "label": "Áreas",
+      "href": "/solucoes#areas"
+     },
+     {
+      "label": "Setores",
+      "href": "/solucoes#setores"
+     },
+     {
+      "label": "Casos de uso",
+      "href": "/solucoes#casos"
+     }
+    ]
+   },
+   {
+    "title": "Negócios",
+    "links": [
+     {
+      "label": "Por que a Loop",
+      "href": "/por-que-loop/empresas"
+     },
+     {
+      "label": "Planos",
+      "href": "/planos"
+     },
+     {
+      "label": "Parceiros",
+      "href": "/parceiros"
+     },
+     {
+      "label": "Aprender",
+      "href": "/aprender"
+     }
+    ]
+   },
+   {
+    "title": "Empresa",
+    "links": [
+     {
+      "label": "Sobre",
+      "href": "/sobre"
+     },
+     {
+      "label": "Princípios",
+      "href": "/principios"
+     },
+     {
+      "label": "Carreiras",
+      "href": "/carreiras"
+     },
+     {
+      "label": "Segurança",
+      "href": "/seguranca"
+     },
+     {
+      "label": "Notícias",
+      "href": "/noticias"
+     }
+    ]
+   },
+   {
+    "title": "Legal",
+    "links": [
+     {
+      "label": "Privacidade",
+      "href": "/privacidade"
+     },
+     {
+      "label": "Termos",
+      "href": "/termos"
+     },
+     {
+      "label": "Cookies",
+      "href": "/cookies"
+     }
+    ]
+   }
+  ],
+  "social": true,
+  "status": "inferred"
+ }
+}
