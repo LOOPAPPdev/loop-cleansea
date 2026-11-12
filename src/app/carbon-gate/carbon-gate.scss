@@ -1,0 +1,34 @@
+// GATE 0 PROBE — temporary. Delete after the Carbon go/no-go decision.
+// Per-component imports only. No global reset, no IBM Plex @font-face,
+// so existing Loop pages are not affected by Carbon's base styles.
+@use '@carbon/react/scss/config' with (
+  $css--font-face: false,
+  $css--reset: false
+);
+@use '@carbon/react/scss/themes';
+@use '@carbon/react/scss/theme' with (
+  $theme: themes.$white
+);
+// REQUIRED with per-component imports: emits :root layout tokens
+// (--cds-layout-size-height-*). Without it, buttons and inputs collapse.
+@use '@carbon/react/scss/layout';
+@use '@carbon/react/scss/grid';
+@use '@carbon/react/scss/components/button';
+@use '@carbon/react/scss/components/text-input';
+@use '@carbon/react/scss/components/tile';
+@use '@carbon/react/scss/components/data-table';
+@use '@carbon/react/scss/components/modal';
+@use '@carbon/react/scss/components/notification';
+@use '@carbon/react/scss/spacing' as *;
+
+// Theme tokens as CSS custom properties, scoped to the probe only.
+.carbon-gate {
+  @include theme.theme();
+  padding-block: $spacing-07;
+  font-family: var(--font-sans);
+}
+
+.carbon-gate__stack {
+  display: grid;
+  gap: $spacing-05;
+}
