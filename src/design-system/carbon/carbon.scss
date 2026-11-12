@@ -1,0 +1,60 @@
+// Layer 2 (Carbon) — the ONLY stylesheet that loads Carbon CSS.
+// Order: Carbon config → layout tokens → components → Loop theme → Loop shape layer.
+// Rules (docs/carbon-gate-0.md):
+//   - No reset, no IBM Plex: Loop's base.css and Inter stay in charge.
+//   - Per-component imports only. Add a component here when a wrapper needs it.
+//   - Theme values come from carbon-theme.css (generated). Do not set --cds-* by hand.
+
+@use '@carbon/react/scss/config' with (
+  $css--font-face: false,
+  $css--reset: false
+);
+// REQUIRED with per-component imports: emits :root layout tokens (control heights).
+@use '@carbon/react/scss/layout';
+@use '@carbon/react/scss/grid';
+@use '@carbon/react/scss/components/button';
+@use '@carbon/react/scss/components/text-input';
+@use '@carbon/react/scss/components/tile';
+@use '@carbon/react/scss/components/data-table';
+@use '@carbon/react/scss/components/modal';
+@use '@carbon/react/scss/components/notification';
+
+// Loop theme for Carbon: every --cds-* token → a Loop token (light + dark).
+@use 'carbon-theme';
+
+// ---------------------------------------------------------------------------
+// Loop shape layer. Carbon has a token for button corners only; the rest are
+// fixed in Carbon's CSS, so these few rules set Loop shapes. Keep this list
+// short: each rule targets a Carbon class and must be re-checked on upgrade.
+// ---------------------------------------------------------------------------
+
+// Loop secondary/ghost buttons use text colour on a light surface, not white.
+.cds--btn--secondary,
+.cds--btn--secondary:hover,
+.cds--btn--secondary:active,
+.cds--btn--ghost,
+.cds--btn--ghost:hover,
+.cds--btn--ghost:active {
+  color: var(--color-text);
+}
+
+// Loop fields: full 1px border and small radius (primitives .input).
+.cds--text-input,
+.cds--text-area {
+  border: 1px solid var(--cds-border-strong-01);
+  border-radius: var(--radius-sm);
+}
+
+.cds--tile {
+  border-radius: var(--radius-card);
+}
+
+.cds--inline-notification,
+.cds--toast-notification {
+  border-radius: var(--radius-md);
+}
+
+.cds--modal-container {
+  border-radius: var(--radius-card);
+  overflow: hidden; // clips the full-bleed footer buttons to the radius
+}

@@ -1,0 +1,450 @@
+{
+  "$description": "Carbon token → Loop token rules. Input to scripts/build-carbon-theme.mjs. Brand decisions live here; values live in tokens.json.",
+  "$syntax": {
+    "{token}": "Loop token → var(--token). Follows light/dark automatically.",
+    "mix({a}, {b}, N)": "color-mix(in srgb, a N%, b). b may be 'transparent'.",
+    "invert({token})": "Literal value of the token in the OPPOSITE scheme (for inverse surfaces).",
+    "{\"light\": x, \"dark\": y}": "Different rule per scheme.",
+    "literal": "Any CSS value. Use only when no Loop token fits."
+  },
+  "exclude": [
+    "ai",
+    "chat",
+    "syntax",
+    "colorScheme"
+  ],
+  "componentGroups": [
+    "button",
+    "notification"
+  ],
+  "theme": {
+    "background": "{color-bg}",
+    "background-hover": "mix({color-text}, {color-bg}, 5)",
+    "background-active": "mix({color-text}, {color-bg}, 12)",
+    "background-selected": "mix({color-text}, {color-bg}, 8)",
+    "background-selected-hover": "mix({color-text}, {color-bg}, 12)",
+    "background-inverse": "{color-text}",
+    "background-inverse-hover": "mix({color-bg}, {color-text}, 12)",
+    "background-brand": "{loop-green}",
+    "layer-01": "{color-surface}",
+    "layer-02": {
+      "light": "{color-surface-raised}",
+      "dark": "{loop-slate-200}"
+    },
+    "layer-03": {
+      "light": "{color-surface}",
+      "dark": "{loop-slate-300}"
+    },
+    "layer-background-01": "{color-bg}",
+    "layer-background-02": "{color-surface}",
+    "layer-background-03": {
+      "light": "{color-surface-raised}",
+      "dark": "{loop-slate-200}"
+    },
+    "layer-hover-01": "mix({color-text}, {color-surface}, 5)",
+    "layer-hover-02": {
+      "light": "mix({color-text}, {color-surface-raised}, 5)",
+      "dark": "mix({color-text}, {loop-slate-200}, 5)"
+    },
+    "layer-hover-03": {
+      "light": "mix({color-text}, {color-surface}, 5)",
+      "dark": "mix({color-text}, {loop-slate-300}, 5)"
+    },
+    "layer-active-01": "mix({color-text}, {color-surface}, 14)",
+    "layer-active-02": {
+      "light": "mix({color-text}, {color-surface-raised}, 14)",
+      "dark": "mix({color-text}, {loop-slate-200}, 14)"
+    },
+    "layer-active-03": {
+      "light": "mix({color-text}, {color-surface}, 14)",
+      "dark": "mix({color-text}, {loop-slate-300}, 14)"
+    },
+    "layer-selected-01": "{color-surface-sunken}",
+    "layer-selected-02": "{color-surface-sunken}",
+    "layer-selected-03": "{color-surface-sunken}",
+    "layer-selected-hover-01": "mix({color-text}, {color-surface-sunken}, 6)",
+    "layer-selected-hover-02": "mix({color-text}, {color-surface-sunken}, 6)",
+    "layer-selected-hover-03": "mix({color-text}, {color-surface-sunken}, 6)",
+    "layer-selected-inverse": "{color-text}",
+    "layer-selected-disabled": "{loop-slate-300}",
+    "layer-accent-01": "{color-surface-sunken}",
+    "layer-accent-02": {
+      "light": "{color-surface-sunken}",
+      "dark": "{loop-slate-300}"
+    },
+    "layer-accent-03": {
+      "light": "{color-surface-sunken}",
+      "dark": "{loop-slate-300}"
+    },
+    "layer-accent-hover-01": "mix({color-text}, {color-surface-sunken}, 6)",
+    "layer-accent-hover-02": "mix({color-text}, {color-surface-sunken}, 6)",
+    "layer-accent-hover-03": "mix({color-text}, {color-surface-sunken}, 6)",
+    "layer-accent-active-01": "mix({color-text}, {color-surface-sunken}, 14)",
+    "layer-accent-active-02": "mix({color-text}, {color-surface-sunken}, 14)",
+    "layer-accent-active-03": "mix({color-text}, {color-surface-sunken}, 14)",
+    "field-01": "{color-bg}",
+    "field-02": "{color-bg}",
+    "field-03": "{color-bg}",
+    "field-hover-01": "mix({color-text}, {color-bg}, 4)",
+    "field-hover-02": "mix({color-text}, {color-bg}, 4)",
+    "field-hover-03": "mix({color-text}, {color-bg}, 4)",
+    "border-subtle-00": "{color-surface-sunken}",
+    "border-subtle-01": "{loop-slate-300}",
+    "border-subtle-02": "{loop-slate-300}",
+    "border-subtle-03": "{loop-slate-300}",
+    "border-subtle-selected-01": "{loop-slate-300}",
+    "border-subtle-selected-02": "{loop-slate-300}",
+    "border-subtle-selected-03": "{loop-slate-300}",
+    "border-strong-01": "{color-border-strong}",
+    "border-strong-02": "{color-border-strong}",
+    "border-strong-03": "{color-border-strong}",
+    "border-tile-01": "{loop-slate-300}",
+    "border-tile-02": "{loop-slate-300}",
+    "border-tile-03": "{loop-slate-300}",
+    "border-inverse": "{color-text}",
+    "border-interactive": "{loop-blue}",
+    "border-disabled": "{color-surface-sunken}",
+    "text-primary": "{color-text}",
+    "text-secondary": "{color-text-muted}",
+    "text-placeholder": "{color-text-muted}",
+    "text-helper": "{color-text-muted}",
+    "text-error": "{loop-danger}",
+    "text-inverse": "{color-bg}",
+    "text-on-color": "{color-on-primary}",
+    "text-on-color-disabled": "{loop-slate-500}",
+    "text-disabled": "mix({color-text}, {color-bg}, 40)",
+    "link-primary": "{color-link}",
+    "link-primary-hover": "mix({color-link}, {color-text}, 72)",
+    "link-secondary": "mix({color-link}, {color-text}, 72)",
+    "link-visited": "{loop-purple}",
+    "link-inverse": "invert({color-link})",
+    "link-inverse-hover": "invert({color-link})",
+    "link-inverse-active": "invert({color-text})",
+    "link-inverse-visited": "invert({loop-purple})",
+    "icon-primary": "{color-text}",
+    "icon-secondary": "{color-text-muted}",
+    "icon-on-color": "{color-on-primary}",
+    "icon-on-color-disabled": "{loop-slate-500}",
+    "icon-inverse": "{color-bg}",
+    "icon-interactive": "{loop-blue}",
+    "icon-disabled": "mix({color-text}, {color-bg}, 40)",
+    "support-error": "{loop-danger}",
+    "support-success": "{loop-green}",
+    "support-warning": "{loop-warn}",
+    "support-info": "{loop-blue}",
+    "support-error-inverse": "invert({loop-danger})",
+    "support-success-inverse": "invert({loop-green})",
+    "support-warning-inverse": "invert({loop-warn})",
+    "support-info-inverse": "invert({loop-blue})",
+    "support-caution-major": "{loop-warn}",
+    "support-caution-minor": "{loop-warn}",
+    "support-caution-undefined": "{loop-purple}",
+    "focus": "{color-focus}",
+    "focus-inset": "{color-bg}",
+    "focus-inverse": "invert({color-focus})",
+    "interactive": "{loop-blue}",
+    "highlight": "{loop-blue-tint}",
+    "overlay": "{color-scrim}",
+    "shadow": {
+      "light": "rgb(0 0 0 / 0.3)",
+      "dark": "rgb(0 0 0 / 0.8)"
+    },
+    "toggle-off": "{color-border-strong}",
+    "skeleton-background": "{color-surface}",
+    "skeleton-element": "{loop-slate-300}"
+  },
+  "component": {
+    "button-primary": "{action-primary}",
+    "button-primary-hover": "{action-primary-hover}",
+    "button-primary-active": "mix({action-primary-hover}, {color-bg}, 85)",
+    "button-secondary": "{color-surface}",
+    "button-secondary-hover": "{color-surface-sunken}",
+    "button-secondary-active": "mix({color-text}, {color-surface-sunken}, 10)",
+    "button-tertiary": "{action-primary}",
+    "button-tertiary-hover": "{action-primary-hover}",
+    "button-tertiary-active": "mix({action-primary-hover}, {color-bg}, 85)",
+    "button-danger-primary": "{loop-danger}",
+    "button-danger-secondary": "{loop-danger}",
+    "button-danger-hover": "mix({loop-danger}, {loop-slate-900}, 85)",
+    "button-danger-active": "mix({loop-danger}, {loop-slate-900}, 72)",
+    "button-separator": "{loop-slate-300}",
+    "button-disabled": "{color-surface-sunken}",
+    "button-radius": "{radius-pill}",
+    "notification-background-info": "{loop-blue-tint}",
+    "notification-background-success": "{loop-green-tint}",
+    "notification-background-warning": "{loop-warn-tint}",
+    "notification-background-error": "mix({loop-danger}, {color-bg}, 10)",
+    "notification-action-hover": "{color-bg}",
+    "notification-action-tertiary-inverse": "{color-bg}",
+    "notification-action-tertiary-inverse-hover": "mix({color-bg}, {color-text}, 88)",
+    "notification-action-tertiary-inverse-active": "mix({color-bg}, {color-text}, 75)",
+    "notification-action-tertiary-inverse-text": "{color-text}",
+    "notification-action-tertiary-inverse-text-on-color-disabled": "mix({color-bg}, {color-text}, 40)"
+  },
+  "checks": [
+    [
+      "text-primary",
+      "background",
+      4.5,
+      "Body text on page"
+    ],
+    [
+      "text-primary",
+      "layer-01",
+      4.5,
+      "Body text on layer 1"
+    ],
+    [
+      "text-primary",
+      "layer-02",
+      4.5,
+      "Body text on layer 2"
+    ],
+    [
+      "text-primary",
+      "field-01",
+      4.5,
+      "Input value"
+    ],
+    [
+      "text-secondary",
+      "background",
+      4.5,
+      "Secondary text on page"
+    ],
+    [
+      "text-secondary",
+      "layer-01",
+      4.5,
+      "Secondary text on layer 1"
+    ],
+    [
+      "text-placeholder",
+      "field-01",
+      4.5,
+      "Placeholder in field"
+    ],
+    [
+      "text-helper",
+      "background",
+      4.5,
+      "Helper text"
+    ],
+    [
+      "text-error",
+      "background",
+      4.5,
+      "Error message"
+    ],
+    [
+      "link-primary",
+      "background",
+      4.5,
+      "Link on page"
+    ],
+    [
+      "link-primary",
+      "layer-01",
+      4.5,
+      "Link on layer 1"
+    ],
+    [
+      "text-on-color",
+      "button-primary",
+      4.5,
+      "Primary button label"
+    ],
+    [
+      "text-on-color",
+      "button-primary-hover",
+      4.5,
+      "Primary button label (hover)"
+    ],
+    [
+      "text-primary",
+      "button-secondary",
+      4.5,
+      "Secondary button label (Loop: text on surface)"
+    ],
+    [
+      "text-on-color",
+      "button-danger-primary",
+      4.5,
+      "Danger button label"
+    ],
+    [
+      "text-on-color",
+      "button-danger-hover",
+      4.5,
+      "Danger button label (hover)"
+    ],
+    [
+      "text-inverse",
+      "background-inverse",
+      4.5,
+      "Inverse text (high-contrast notification, tooltip)"
+    ],
+    [
+      "link-inverse",
+      "background-inverse",
+      4.5,
+      "Link on inverse surface"
+    ],
+    [
+      "border-strong-01",
+      "field-01",
+      3,
+      "Field border (non-text, 1.4.11)"
+    ],
+    [
+      "border-strong-01",
+      "background",
+      3,
+      "Control border on page"
+    ],
+    [
+      "focus",
+      "background",
+      3,
+      "Focus ring on page"
+    ],
+    [
+      "focus",
+      "layer-01",
+      3,
+      "Focus ring on layer 1"
+    ],
+    [
+      "interactive",
+      "background",
+      3,
+      "Selected/checked control"
+    ],
+    [
+      "button-primary",
+      "background",
+      3,
+      "Primary button shape"
+    ],
+    [
+      "icon-primary",
+      "background",
+      3,
+      "Icon"
+    ],
+    [
+      "icon-secondary",
+      "background",
+      3,
+      "Secondary icon"
+    ],
+    [
+      "support-error",
+      "background",
+      3,
+      "Error icon / outline"
+    ],
+    [
+      "support-success",
+      "background",
+      3,
+      "Success icon"
+    ],
+    [
+      "support-warning",
+      "background",
+      3,
+      "Warning icon"
+    ],
+    [
+      "support-info",
+      "background",
+      3,
+      "Info icon"
+    ],
+    [
+      "support-error-inverse",
+      "background-inverse",
+      3,
+      "Error icon on inverse"
+    ],
+    [
+      "support-success-inverse",
+      "background-inverse",
+      3,
+      "Success icon on inverse"
+    ],
+    [
+      "support-warning-inverse",
+      "background-inverse",
+      3,
+      "Warning icon on inverse"
+    ],
+    [
+      "support-info-inverse",
+      "background-inverse",
+      3,
+      "Info icon on inverse"
+    ],
+    [
+      "toggle-off",
+      "background",
+      3,
+      "Toggle track (off)"
+    ],
+    [
+      "text-primary",
+      "notification-background-info",
+      4.5,
+      "Notification text (info)"
+    ],
+    [
+      "text-primary",
+      "notification-background-success",
+      4.5,
+      "Notification text (success)"
+    ],
+    [
+      "text-primary",
+      "notification-background-warning",
+      4.5,
+      "Notification text (warning)"
+    ],
+    [
+      "text-primary",
+      "notification-background-error",
+      4.5,
+      "Notification text (error)"
+    ],
+    [
+      "support-info",
+      "notification-background-info",
+      3,
+      "Info icon on its notification"
+    ],
+    [
+      "support-success",
+      "notification-background-success",
+      3,
+      "Success icon on its notification"
+    ],
+    [
+      "support-warning",
+      "notification-background-warning",
+      3,
+      "Warning icon on its notification"
+    ],
+    [
+      "support-error",
+      "notification-background-error",
+      3,
+      "Error icon on its notification"
+    ],
+    [
+      "notification-action-tertiary-inverse-text",
+      "notification-action-tertiary-inverse",
+      4.5,
+      "Action button in high-contrast notification"
+    ]
+  ]
+}

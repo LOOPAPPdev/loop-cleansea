@@ -108,7 +108,15 @@ Follow this checklist for each task:
 ## Stack
 Next.js 16 (App Router) on Cloudflare Workers via OpenNext. TypeScript strict. CSS Modules + design tokens (no Tailwind classes in components).
 
-Commands: `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck` · `npm run test:ui` (needs `npm start` running) · `npm run preview` (Workers runtime locally) · `npm run deploy` (ONLY with explicit approval).
+Commands: `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck` · `npm run test:ui` (needs `npm start` running) · `npm run preview` (Workers runtime locally) · `npm run deploy` (ONLY with explicit approval) · `npm run tokens:carbon` (regenerate Carbon theme) · `npm run tokens:check` (tokens drift, coverage, WCAG AA).
+
+## Carbon foundation (under evaluation — see `docs/carbon-gate-0.md`, `docs/carbon-gate-1.md`)
+- Tokens: `tokens.json` is the source; `tokens.css` MUST match it. Change both, then run `npm run tokens:carbon`. Never edit `carbon-theme.css` or `carbon-report.json` by hand.
+- Brand rules for Carbon live in `src/design-system/carbon/carbon-map.json`. Every Carbon theme token and every component token of a loaded component MUST have a rule (`tokens:check` enforces this).
+- Import Carbon by deep path only (`@carbon/react/es/components/...`), never from the `@carbon/react` barrel (+233 KB JS, +404 KiB Worker).
+- Load Carbon CSS only through `src/design-system/carbon/carbon.scss`. With per-component SCSS, `@carbon/react/scss/layout` MUST be loaded. No reset, no IBM Plex.
+- Carbon `Modal` MUST get `launcherButtonRef`. Carbon `TextInput` with `invalid` MUST also get `aria-describedby` = the error id.
+- Test the Workers runtime with `npm run preview`, not raw `wrangler dev` (it skips cache population).
 
 ## Architecture: 4 layers (a lower layer never imports a higher one)
 | Layer | Path | Contains | May import |

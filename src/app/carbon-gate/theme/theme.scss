@@ -1,0 +1,89 @@
+// GATE 1 PREVIEW — layout for the theme preview page. Loop tokens only.
+.theme {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); // let wide tables scroll instead of widening the page
+  gap: var(--space-12);
+
+  h1 { font-size: var(--text-h2); letter-spacing: var(--tracking-heading); line-height: var(--leading-snug); }
+  h2 { font-size: var(--text-h3); letter-spacing: var(--tracking-heading); margin-block-end: var(--space-4); }
+  h3 { font-size: var(--text-card); margin-block-end: var(--space-3); }
+}
+
+.theme__intro p { color: var(--color-text-muted); max-width: var(--measure); margin-block-start: var(--space-3); }
+
+.showcase { display: grid; gap: var(--space-8); }
+.showcase__row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.showcase__grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  align-items: start;
+}
+
+// position: relative keeps absolutely-positioned .sr-only text inside the scroll box
+// (otherwise it escapes and widens the page at 320px).
+.theme__scroll { overflow-x: auto; max-width: 100%; position: relative; }
+.theme__scroll:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+.theme__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-caption);
+
+  th, td {
+    text-align: start;
+    padding: var(--space-2) var(--space-3);
+    border-block-end: 1px solid var(--color-divider);
+    vertical-align: middle;
+  }
+  thead th { color: var(--color-text-muted); font-weight: 500; }
+}
+
+.theme__code { font-family: var(--font-mono); font-size: var(--text-micro); overflow-wrap: anywhere; }
+.theme__swatch { display: inline-flex; align-items: center; gap: var(--space-2); }
+.theme__chip {
+  display: inline-block;
+  inline-size: 28px;
+  block-size: 28px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  flex: none;
+}
+.theme__pair { display: inline-flex; margin-inline-end: var(--space-2); }
+.theme__sample {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 36px;
+  block-size: 28px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+}
+// Non-text pairs (3:1): show a shape, not text.
+.theme__sample--shape {
+  border: 4px solid currentColor;
+}
+.theme__pass { color: var(--color-text); }
+.theme__fail { color: var(--loop-danger); font-weight: 600; }
+
+.theme__group {
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  margin-block-end: var(--space-3);
+
+  summary {
+    cursor: pointer;
+    min-height: var(--target-min);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding-inline: var(--space-4);
+    font-weight: 500;
+  }
+  summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; border-radius: var(--radius-md); }
+  .theme__scroll { padding: 0 var(--space-4) var(--space-4); }
+}
+.theme__count { color: var(--color-text-muted); font-size: var(--text-caption); }

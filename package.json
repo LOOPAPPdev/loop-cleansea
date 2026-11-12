@@ -10,6 +10,7 @@
 		"react-dom": "19.2.1"
 	},
 	"devDependencies": {
+		"@carbon/themes": "11.85.0",
 		"@types/node": "24.10.1",
 		"@types/react": "19.2.7",
 		"@types/react-dom": "19.2.3",
@@ -30,6 +31,8 @@
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
 		"start": "next start",
 		"typecheck": "tsc --noEmit",
-		"test:ui": "node scripts/ui-check.mjs"
+		"test:ui": "node scripts/ui-check.mjs",
+		"tokens:carbon": "node scripts/build-carbon-theme.mjs",
+		"tokens:check": "node scripts/build-carbon-theme.mjs --check"
 	}
 }
