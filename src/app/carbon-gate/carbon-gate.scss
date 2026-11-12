@@ -1,0 +1,12 @@
+// GATE PROBE — temporary. Delete after the Carbon go/no-go decision.
+// Carbon + Loop theme come from the shared design-system stylesheet.
+@use '../../design-system/carbon/carbon';
+
+.carbon-gate {
+  padding-block: var(--space-8);
+}
+
+.carbon-gate__stack {
+  display: grid;
+  gap: var(--space-4);
+}
