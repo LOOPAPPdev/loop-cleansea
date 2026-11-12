@@ -39,7 +39,7 @@ Can `@carbon/react` v11 run in this stack (Next 16 + React 19.2 + OpenNext on Cl
 Also: Carbon components are client components. Deep-imported modules do not carry `"use client"`, so wrappers MUST declare it.
 
 ## Found, not caused by Carbon (separate fixes)
-- **SSG pages return 404 on the Workers runtime** (e.g. `/solucoes/casos/agentes`, `/privacidade`) and 200 on `next start`. The baseline without Carbon has the same result. Hypothesis: `open-next.config.ts` has no incremental cache configured. This affects production deploys today.
+- **FIXED — SSG pages returned 404 on the Workers runtime** (e.g. `/solucoes/casos/agentes`, `/privacidade`). Cause (confirmed with a clean control build): `open-next.config.ts` had no incremental cache, so `preview`/`deploy` did not upload prerendered pages. Fix: `staticAssetsIncrementalCache` (read-only; valid while no route uses `revalidate`). Note: test the Workers runtime with `npm run preview`, not raw `wrangler dev`, which skips cache population.
 - `npm run test:ui` fails: `playwright` is not a dependency of the repo.
 - Footer links prefetch pages that do not exist yet (`/termos`, `/cookies`, `/por-que-loop/empresas`).
 
